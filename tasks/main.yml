@@ -1,0 +1,6 @@
+- name: Call consul
+  consul_kv:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    host: "{{ item.host }}"
+  with_items: "{{ consul_keys | default('[]')}}"
